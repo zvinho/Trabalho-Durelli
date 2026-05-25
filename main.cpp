@@ -4,7 +4,6 @@
 #include "parser.h"
 #include "formatador.h"
 
-
 using namespace std;
 
 
@@ -54,12 +53,16 @@ int main(){
 
 		if (fracao > 0.000001) {
     		cout << "," << fracaoConvertida;
+			mostrarParteFracionaria(fracao, base);
 		}
 
 		if (truncamento == true) {
     		cout << " Houve truncamento";
 		}
 		cout << endl;
+
+		mostrarDivisoes(inteiroNum, base);
+
 		}
 
 	if(escolha==2){
@@ -92,6 +95,9 @@ int main(){
 		
 		resultado = conversorDeDecimal(valorEmDecimal, baseFinal);
 		cout<<"O resultado da conversao e: "<<resultado<<endl;
+
+		mostrarSomatorio(valor, baseValor,baseFinal);
+
 		}
 
 	return 0;

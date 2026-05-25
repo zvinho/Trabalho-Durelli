@@ -7,6 +7,7 @@
 using namespace std;
 
 void mostrarDivisoes(int num, int baseDestino){
+	cout<<endl;
 	cout<<"---------Passo-a-passo-Divisoes-Sucessivas---------"<<endl;
 	cout<<"Dividendo"<<" | "<<"Divisor(Base)"<<" | "<<"Quociente"<<" | "<<"Resto"<<endl;
 	cout<<"---------------------------------------------------"<<endl;
@@ -41,6 +42,7 @@ void mostrarDivisoes(int num, int baseDestino){
 	}
 	
 void mostrarSomatorio(string num, int baseNum, int baseResultado){
+	cout<<endl;
 	cout<<"---------Passo-a-passo-Somatorio----------"<<endl;
 	int n, tam;
 	tam = num.length();
@@ -59,7 +61,7 @@ void mostrarSomatorio(string num, int baseNum, int baseResultado){
 		n = transformarChar(num[i]);
 		valor = n*(pow(baseNum,t));
 		resultado+=valor;
-		cout<<num[i]<<" = "<<n<<" * "<<baseNum<<" ^ "<<t<<" = "<<valor<<endl; 
+		cout<<num[i]<<" = "<<n<<" * "<<baseNum<<" ^ "<<t<<" = "<<valor<<endl;
 		t--;
 			}
 		cout<<"Soma total em decimal: "<<resultado<<endl;											
@@ -118,7 +120,7 @@ void mostrarSomatorio(string num, int baseNum, int baseResultado){
 		if(baseNum==8){
 			string binario="";
 		if(baseResultado==2){
-			cout<<"Primeiro transforme cada numero em binario."<<endl;
+			cout<<"Transforme cada numero em binario."<<endl;
 			for(int i=0; i<tam;i++){
 				cout<<num[i]<<" octal = "<<octalBin(num[i])<<" binario."<<endl;
 				binario+=octalBin(num[i]);
@@ -128,7 +130,7 @@ void mostrarSomatorio(string num, int baseNum, int baseResultado){
 			cout<<"Conversao final: "<<binario<<endl;	
 			}	
 		if(baseResultado==16){
-			cout<<"Primeiro transforme cada numero em binario."<<endl;
+			cout<<"Transforme cada numero em binario."<<endl;
 			string binario = "";
 			for(int i=0;i<tam;i++){
 				cout<<num[i]<<" octal = "<<octalBin(num[i])<<" binario."<<endl;
@@ -146,7 +148,7 @@ void mostrarSomatorio(string num, int baseNum, int baseResultado){
 		if(baseNum==16){
 		if(baseResultado==2){
 			for(int i=0;i<tam;i++){
-				cout<<"Primeiro transforme "<<num[i]<<" em binario."<<endl;
+				cout<<"Transforme "<<num[i]<<" em binario."<<endl;
 				cout<<num[i]<<" hexadecimal = "<<hexBin(num[i])<<" binario."<<endl;
 				resultadoFinal+=hexBin(num[i]);
 				}
@@ -158,7 +160,7 @@ void mostrarSomatorio(string num, int baseNum, int baseResultado){
 		if(baseResultado==8){
 			string binario = "";
 			for(int i=0;i<tam;i++){
-				cout<<"Primeiro transforme "<<num[i]<<" em binario."<<endl;
+				cout<<"Transforme "<<num[i]<<" em binario."<<endl;
 				cout<<num[i]<<" hexadecimal = "<<hexBin(num[i])<<" binario."<<endl;
 				binario+=hexBin(num[i]);
 			}
@@ -177,6 +179,7 @@ void mostrarParteFracionaria(double valorFracionario, int baseDestino){
 	double resto=valorFracionario;
 	string resultado="";
 	
+	cout<<endl;
 	cout<<"--------Passo-a-passo-Parte-Fracionaria---------"<<endl;
 	cout<<"Parte fracionaria: "<<valorFracionario<<endl;
 	cout<<"Converter para base: "<<baseDestino<<endl;
@@ -184,8 +187,10 @@ void mostrarParteFracionaria(double valorFracionario, int baseDestino){
 	for (int i = 0; i < 16; i++) {
 		double multiplicacao = resto*baseDestino;
         cout<<resto<<" * "<<baseDestino<<" = "<<multiplicacao<<endl;
+		cout<<endl;
         int digitoInteiro = (int)multiplicacao;
         cout<<"Convertendo os digitos: "<<digitoInteiro<<endl;
+		cout<<endl;
         resultado += digitos[digitoInteiro];
         resto = multiplicacao-digitoInteiro;
         
@@ -202,4 +207,3 @@ void mostrarParteFracionaria(double valorFracionario, int baseDestino){
 		cout<<"Resultado truncado apos 16 casas."<<endl;
 			}			
 	}
-

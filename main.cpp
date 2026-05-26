@@ -394,7 +394,7 @@ else if(opcao == 3) {
 		cin>>K;
 		cout<<endl;
 
-		int maximo;
+		unsigned long long maximo;
 		maximo= pow(2, K)-1;
 
 		string bin, oct, hex;
@@ -402,11 +402,8 @@ else if(opcao == 3) {
 		bin=conversorDeDecimal(maximo, 2);
 		oct=conversorDeDecimal(maximo, 8);
 		hex=conversorDeDecimal(maximo, 16);
-
-		cout<<"Valor maximo em decimal: "<<maximo<<endl;
-		cout<<"Valor maximo em binario: "<<bin<<endl;
-		cout<<"Valor maximo em octal: "<<oct<<endl;
-		cout<<"Valor maximo em hexadecimal: "<<hex<<endl;
+		
+		mostrarMaximos(K, maximo, bin, oct, hex);
 
 	}
 

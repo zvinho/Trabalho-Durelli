@@ -21,7 +21,8 @@ resultadoFracionario converterFracionarioParaBase(double valorFracionario, int b
         resultado += digitos[digitoInteiro];
         resto -= digitoInteiro;
 
-        if (resto == 0) {
+        if (resto < 0.000001) {
+            resto = 0.0;
             break;
         }
         if (i == 15 && resto > 0) truncado = true;
@@ -76,16 +77,23 @@ string converterFracionarioParaDecimal(string parteFracionaria, int baseOrigem) 
 
     string str = to_string(somaTotal);
 
-    while(str.back() == '0') {
-        str.pop_back();
-    }
-    if (str.back() == '.' || str.back() == ',') {
-        str.pop_back();
+    int tamStr = 0;
+    while (str[tamStr] != '\0') {
+        tamStr++;
     }
 
+    int fimUtil = tamStr - 1;
+    while (fimUtil >= 0 && str[fimUtil] == '0') {
+        fimUtil--;
+    }
+
+    if (fimUtil >= 0 && (str[fimUtil] == '.' || str[fimUtil] == ',')) {
+        fimUtil--;
+    }
     string apenasFracao = "";
     bool encontrouPonto = false;
-    for (size_t i = 0; i < str.length(); i++) {
+
+    for (int i = 0; i <= fimUtil; i++) {
         if (encontrouPonto) {
             apenasFracao += str[i];
         }
@@ -95,10 +103,10 @@ string converterFracionarioParaDecimal(string parteFracionaria, int baseOrigem) 
     }
 
     if (apenasFracao == "") {
-    	return "0";
-	} else {
-    	return apenasFracao;
-}
+        return "0";
+    } else {
+        return apenasFracao;
+    }
 }
 
 string conversorDeDecimal(int num, int baseDestino){
@@ -134,32 +142,76 @@ int baseParaDecimal(string num, int baseNum) {
 }
 
 string octalBin(char n){
-    if(n=='0') return "000";
-    if(n=='1') return "001";
-    if(n=='2') return "010";
-    if(n=='3') return "011";
-    if(n=='4') return "100";
-    if(n=='5') return "101";
-    if(n=='6') return "110";
+    if(n=='0') {
+        return "000";
+    }
+    if(n=='1') {
+        return "001";
+    }
+    if(n=='2') {
+        return "010";
+    }
+    if(n=='3') {
+        return "011";
+    }
+    if(n=='4') {
+        return "100";
+    }
+    if(n=='5') {
+        return "101";
+    }
+    if(n=='6') {
+        return "110";
+    }
     return "111";
 }
 
 string hexBin(char n){
-    if(n=='0') return "0000";
-    if(n=='1') return "0001";
-    if(n=='2') return "0010";
-    if(n=='3') return "0011";
-    if(n=='4') return "0100";
-    if(n=='5') return "0101";
-    if(n=='6') return "0110";
-    if(n=='7') return "0111";
-    if(n=='8') return "1000";
-    if(n=='9') return "1001";
-    if(n=='A' or n=='a') return "1010";
-    if(n=='B' or n=='b') return "1011";
-    if(n=='C' or n=='c') return "1100";
-    if(n=='D' or n=='d') return "1101";
-    if(n=='E' or n=='e') return "1110";
+    if(n=='0') {
+        return "0000";
+    }
+    if(n=='1'){ 
+        return "0001";
+    }
+    if(n=='2'){
+        return "0010";
+    }
+    if(n=='3'){ 
+        return "0011";
+    }
+    if(n=='4'){ 
+        return "0100";
+    }
+    if(n=='5'){ 
+        return "0101";
+    }
+    if(n=='6'){ 
+        return "0110";
+    }
+    if(n=='7'){ 
+        return "0111";
+    }
+    if(n=='8'){ 
+        return "1000";
+    }
+    if(n=='9'){ 
+        return "1001";
+    }
+    if(n=='A' or n=='a'){ 
+        return "1010";
+    }
+    if(n=='B' or n=='b'){ 
+        return "1011";
+    }
+    if(n=='C' or n=='c'){
+        return "1100";
+    }
+    if(n=='D' or n=='d'){ 
+        return "1101";
+    }
+    if(n=='E' or n=='e'){ 
+        return "1110";
+    }
     return "1111";
 }
 

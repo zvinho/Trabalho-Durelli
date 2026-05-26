@@ -6,9 +6,8 @@
 using namespace std;
 
 void mostrarDivisoes(int num, int baseDestino);
-
 void mostrarSomatorio(string num, int baseNum, int baseResultado);
-
 void mostrarParteFracionaria(double valorFracionario, int baseDestino);
+void mostrarMaximos(int k, unsigned long long dec, string bin, string oct, string hex);
 
 #endif

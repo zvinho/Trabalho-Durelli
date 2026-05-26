@@ -207,3 +207,13 @@ void mostrarParteFracionaria(double valorFracionario, int baseDestino){
 		cout<<"Resultado truncado apos 16 casas."<<endl;
 			}			
 	}
+
+void mostrarMaximos(int k, unsigned long long dec, string bin, string oct, string hex){
+	cout<<endl;
+	cout<<"--------Calculadora de Maximos--------"<<endl;
+	cout<<"Quantidade de bits: "<<k<<endl;
+	cout<<"Valor maximo em decimal: "<<dec<<endl;
+	cout<<"Valor maximo em binario: "<<bin<<endl;
+	cout<<"Valor maximo em octal: "<<oct<<endl;
+	cout<<"Valor maximo em hexadecimal: "<<hex<<endl;
+	}

@@ -129,32 +129,75 @@ int main() {
 	cin>>resposta;
 
 	if(resposta=='s' or resposta=='S'){
-		 if (baseOrigem == 10) {
+
+    if(baseOrigem == 10){
+
         mostrarDivisoes(valorEmDecimal, baseFinal);
-        if (fracaoDouble > 0.000001) {
+
+        if(fracaoDouble > 0.000001){
             cout << endl;
-            cout << NEGRITO << "Passo a passo da conversao da parte fracionaria:" << RESET << endl;
+            cout << NEGRITO
+                 << "Passo a passo da conversao da parte fracionaria:"
+                 << RESET << endl;
+
             mostrarParteFracionaria(fracaoDouble, baseFinal);
         }
-        } else {
-            mostrarSomatorio(parteInteira, baseOrigem, 10);
-            if (fracaoDouble > 0.000001) {
-                cout << endl;
-                cout << NEGRITO << "Passo a passo da conversao da parte fracionaria: " << RESET << endl;
-                mostrarParteFracionaria(fracaoDouble, baseFinal);
-            }
-        if (baseFinal != 10){
+
+    }
+    else if(baseOrigem == 2){
+
+        if(baseFinal == 8){
+            mostrarAgrupamento(parteInteira, baseOrigem, baseFinal);
+			mostrarSomatorio(parteInteira, baseOrigem, baseFinal);
+        }
+
+        if(baseFinal == 16){
+            mostrarAgrupamento(parteInteira, baseOrigem, baseFinal);
+			mostrarSomatorio(parteInteira, baseOrigem, baseFinal);
+        }
+
+        if(fracaoDouble > 0.000001){
             cout << endl;
-            cout << NEGRITO << "Segunda etapa: Convertendo o resultado decimal: "<< RESET << endl;
+            cout << NEGRITO
+                 << "Passo a passo da conversao da parte fracionaria:"
+                 << RESET << endl;
+
+            mostrarParteFracionaria(fracaoDouble, baseFinal);
+        }
+
+    }
+    else{
+
+        mostrarSomatorio(parteInteira, baseOrigem, 10);
+
+        if(fracaoDouble > 0.000001){
+            cout << endl;
+            cout << NEGRITO
+                 << "Passo a passo da conversao da parte fracionaria:"
+                 << RESET << endl;
+
+            mostrarParteFracionaria(fracaoDouble, baseFinal);
+        }
+
+        if(baseFinal != 10){
+            cout << endl;
+            cout << NEGRITO
+                 << "Segunda etapa: Convertendo o resultado decimal:"
+                 << RESET << endl;
+
             mostrarDivisoes(valorEmDecimal, baseFinal);
-        		}
-    		}
-		}
-	}
-   
+        }
+    }
+}
 
-
-else if(opcao == 2) {
+if(resposta=='n' or resposta=='N'){
+	cout<<"Processo de conversao finalizado!"<<endl;
+}
+if(resposta!='s' and resposta!='S' and resposta!='n' and resposta!='N'){
+	cout<<"Resposta invalida! Processo de conversao finalizado!"<<endl;
+}
+	
+}else if(opcao == 2) {
 	ifstream entrada("entrada.csv");
 	ofstream saida("saida.csv");
 
@@ -402,7 +445,7 @@ else if(opcao == 3) {
 		bin=conversorDeDecimal(maximo, 2);
 		oct=conversorDeDecimal(maximo, 8);
 		hex=conversorDeDecimal(maximo, 16);
-		
+
 		mostrarMaximos(K, maximo, bin, oct, hex);
 
 	}

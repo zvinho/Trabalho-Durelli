@@ -40,6 +40,46 @@ void mostrarDivisoes(int num, int baseDestino){
 	cout<<"---------Resultado-----------"<<endl;
 	cout<<resultado<<endl;
 	}
+
+void mostrarAgrupamento(string num, int baseNum, int baseResultado){
+	cout<<"---------Passo-a-passo-Agrupamento---------"<<endl;
+	int tam;
+	tam=num.length();
+	cout<<"Numero: "<<num<<endl;
+
+	if(baseNum==2){
+		if(baseResultado==8){
+		while(num.length() % 3 != 0){
+			num = "0" + num;
+		}
+			tam = num.length();
+		cout<<"Numero em grupos de 3 = "<<num<<endl;
+		cout<<endl;
+			int cont=1;
+				for(int i=0;i<tam;i+=3){
+			string grupo = num.substr(i, 3);
+			cout<<cont<<" grupo: "<<grupo<<endl;
+			cont++;
+				}
+		}
+
+		if(baseResultado==16){
+				while(num.length() % 4 != 0){
+			num = "0" + num;
+		}
+			tam = num.length();
+		cout<<"Numero em grupos de 4 = "<<num<<endl;
+		int cont=1;
+				for(int i=0;i<tam;i+=4){
+			string grupo = num.substr(i, 4);
+			cout<<cont<<" grupo: "<<grupo<<endl;
+			cont++;
+				}
+		}
+	}
+
+
+}
 	
 void mostrarSomatorio(string num, int baseNum, int baseResultado){
 	cout<<endl;
@@ -71,45 +111,26 @@ void mostrarSomatorio(string num, int baseNum, int baseResultado){
 		
 		if(baseNum==2){
 		if(baseResultado==8){
-			if(num.length()%3==0){
-				cout<<"Numero = "<<num<<endl;
-				}
-		while(num.length() % 3 != 0){
+			while(num.length() % 3 != 0){
 			num = "0" + num;
 		}
-			tam = num.length();
-		cout<<"Numero em grupos de 3 = "<<num<<endl;
-		cout<<endl;
-
-			int cont=1;
 		for(int i=0;i<tam;i+=3){
 			string grupo = num.substr(i, 3);
-			cout<<cont<<" grupo: "<<grupo<<endl;
 			int valor = baseParaDecimal(grupo,2);
 			mostrarSomatorio(grupo,2,10);
-			cont++;
 			resultadoFinal += digitos[valor];
 			cout<<endl;
 				}
 			cout<<"Conversao final: "<<resultadoFinal<<endl;	
 				}
 		if(baseResultado==16){
-				if(num.length()%4==0){
-					cout<<"Numero = "<<num<<endl;
-					}
-				while(num.length() % 4 != 0){
+			while(num.length() % 4 != 0){
 			num = "0" + num;
 		}
-			tam = num.length();
-		cout<<"Numero em grupos de 4 = "<<num<<endl;
-
-		int cont=1;
 		for(int i=0;i<tam;i+=4){
 			string grupo=num.substr(i, 4);
-			cout<<cont<<" grupo: "<<grupo<<endl;
 			int valor = baseParaDecimal(grupo,2);
 			mostrarSomatorio(grupo, 2, 10);
-			cont++;
 			resultadoFinal += digitos[valor];
 			cout<<endl;
 					}

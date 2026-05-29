@@ -13,6 +13,8 @@ Sobre o Projeto
 Linguagem Escolhida:
   C++ 
 
+Link do vídeo: https://youtu.be/wQL9IWMzsOs?si=B436yDLfoVk-O9jp
+
 Instruções de execução:
   Ao executar, será solicitado o metodo de conversão, sendo eles: 
   1- Conversão manual, onde você informa um valor, a base desse valor e escolhe para qual base você deseja converter esse valor;
